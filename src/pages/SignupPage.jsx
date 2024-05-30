@@ -34,7 +34,7 @@ function SignupPage() {
         <label htmlFor="userName">
           Nom
           <input
-            type="userName"
+            type="text"
             name="userName"
             id="userName"
             onChange={handleChange}
