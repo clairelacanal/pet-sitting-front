@@ -7,6 +7,8 @@ function Navbar() {
         <li>Home</li>
         <li>Annonce</li>
         <li>Contact</li>
+        <li>Signup</li>
+        <li>Login</li>
       </ul>
     </nav>
   );

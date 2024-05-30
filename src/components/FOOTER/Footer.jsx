@@ -1,8 +1,10 @@
+import "./Footer.css";
+
 function Footer() {
   return (
-    <>
-      <h1>Je suis le footer</h1>
-    </>
+    <footer>
+      <p>Je suis le footer</p>
+    </footer>
   );
 }
 
