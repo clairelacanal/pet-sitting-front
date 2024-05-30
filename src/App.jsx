@@ -11,6 +11,7 @@ import MyProfilePage from "./pages/MyProfilePage";
 import MyFavoritePage from "./pages/MyFavoritesPage";
 import CreationAnnoncePage from "./pages/CreationAnnoncePage";
 import MesPropresAnnonces from "./pages/MesPropresAnnonces";
+import IsPublicLayout from "./components/IsPublicLayout";
 
 function App() {
   return (
@@ -19,14 +20,18 @@ function App() {
         <Navbar />
       </header>
       <Routes>
+        <Route Component={IsPublicLayout}>
+          <Route path="/creer-un-compte" Component={SignupPage}></Route>
+          <Route path="/connexion" Component={LoginPage}></Route>
+        </Route>
+
         <Route path="/" Component={HomePage}></Route>
         <Route path="/annonces" Component={AnnoncePage}></Route>
         <Route
           path="/annonces/:annonceId"
           Component={DetailsAnnoncePage}
         ></Route>
-        <Route path="/creer-un-compte" Component={SignupPage}></Route>
-        <Route path="/connexion" Component={LoginPage}></Route>
+
         <Route path="/mon-profile" Component={MyProfilePage}></Route>
         <Route
           path="/mon-profile/mes-annonces-preferees"
