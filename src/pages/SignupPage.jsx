@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 import apiHandler from "../utils/apiHandler";
 
 function SignupPage() {
-  const [signupForm, setSignupForm] = useState({ email: "", password: "" });
+  const [signupForm, setSignupForm] = useState({
+    userName: "",
+    email: "",
+    password: "",
+  });
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -15,10 +19,8 @@ function SignupPage() {
     e.preventDefault();
 
     try {
-      // await apiHandler.post("/creer-un-compte", signupForm);
-      await apiHandler.signup(signupForm);
-
-      navigate("/login");
+      await apiHandler.post("/creer-un-compte", signupForm);
+      navigate("/connexion");
     } catch (error) {
       setError(error.message);
     }
@@ -29,6 +31,16 @@ function SignupPage() {
       {error && <div>{error}</div>}
 
       <form method="post" onSubmit={handleSubmit}>
+        <label htmlFor="userName">
+          Nom
+          <input
+            type="userName"
+            name="userName"
+            id="userName"
+            onChange={handleChange}
+          />
+        </label>
+
         <label htmlFor="email">
           Email
           <input type="email" name="email" id="email" onChange={handleChange} />
