@@ -28,7 +28,7 @@ class ApiHandler {
   }
 
   signup(data) {
-    return this.api.post("/creer-un-compte", data);
+    return this.api.post("/users/signup", data);
   }
 
   getAllAnnonces() {

@@ -19,7 +19,7 @@ function SignupPage() {
     e.preventDefault();
 
     try {
-      await apiHandler.post("/creer-un-compte", signupForm);
+      await apiHandler.signup(signupForm);
       navigate("/connexion");
     } catch (error) {
       setError(error.message);

@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "./contexts/AuthContext";
 import "./App.css";
 import Navbar from "./components/NAVBAR/Navbar";
 import Footer from "./components/FOOTER/Footer";
@@ -15,6 +17,11 @@ import IsPublicLayout from "./components/IsPublicLayout";
 import IsPrivateLayout from "./components/IsPrivateLayout";
 
 function App() {
+  const { isLoading } = useContext(AuthContext);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       <header>
