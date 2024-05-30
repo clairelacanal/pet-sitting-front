@@ -12,6 +12,7 @@ import MyFavoritePage from "./pages/MyFavoritesPage";
 import CreationAnnoncePage from "./pages/CreationAnnoncePage";
 import MesPropresAnnonces from "./pages/MesPropresAnnonces";
 import IsPublicLayout from "./components/IsPublicLayout";
+import IsPrivateLayout from "./components/IsPrivateLayout";
 
 function App() {
   return (
@@ -23,28 +24,29 @@ function App() {
         <Route Component={IsPublicLayout}>
           <Route path="/creer-un-compte" Component={SignupPage}></Route>
           <Route path="/connexion" Component={LoginPage}></Route>
+          <Route path="/" Component={HomePage}></Route>
         </Route>
 
-        <Route path="/" Component={HomePage}></Route>
-        <Route path="/annonces" Component={AnnoncePage}></Route>
-        <Route
-          path="/annonces/:annonceId"
-          Component={DetailsAnnoncePage}
-        ></Route>
-
-        <Route path="/mon-profile" Component={MyProfilePage}></Route>
-        <Route
-          path="/mon-profile/mes-annonces-preferees"
-          Component={MyFavoritePage}
-        ></Route>
-        <Route
-          path="/mon-profile/creer-une-annonce"
-          Component={CreationAnnoncePage}
-        ></Route>
-        <Route
-          path="/mon-profile/mes-propres-annonces"
-          Component={MesPropresAnnonces}
-        ></Route>
+        <Route Component={IsPrivateLayout}>
+          <Route path="/annonces" Component={AnnoncePage}></Route>
+          <Route
+            path="/annonces/:annonceId"
+            Component={DetailsAnnoncePage}
+          ></Route>
+          <Route path="/mon-profile" Component={MyProfilePage}></Route>
+          <Route
+            path="/mon-profile/mes-annonces-preferees"
+            Component={MyFavoritePage}
+          ></Route>
+          <Route
+            path="/mon-profile/creer-une-annonce"
+            Component={CreationAnnoncePage}
+          ></Route>
+          <Route
+            path="/mon-profile/mes-propres-annonces"
+            Component={MesPropresAnnonces}
+          ></Route>
+        </Route>
       </Routes>
       <Footer />
     </>
