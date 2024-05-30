@@ -7,6 +7,10 @@ import AnnoncePage from "./pages/AnnoncePage";
 import DetailsAnnoncePage from "./pages/DetailsAnnoncePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
+import MyProfilePage from "./pages/MyProfilePage";
+import MyFavoritePage from "./pages/MyFavoritesPage";
+import CreationAnnoncePage from "./pages/CreationAnnoncePage";
+import MesPropresAnnonces from "./pages/MesPropresAnnonces";
 
 function App() {
   return (
@@ -17,15 +21,26 @@ function App() {
       <Routes>
         <Route path="/" Component={HomePage}></Route>
         <Route path="/annonces" Component={AnnoncePage}></Route>
-        <Route path="/signup" Component={SignupPage}></Route>
-        <Route path="/login" Component={LoginPage}></Route>
-
         <Route
           path="/annonces/:annonceId"
           Component={DetailsAnnoncePage}
         ></Route>
+        <Route path="/creer-un-compte" Component={SignupPage}></Route>
+        <Route path="/connexion" Component={LoginPage}></Route>
+        <Route path="/mon-profile" Component={MyProfilePage}></Route>
+        <Route
+          path="/mon-profile/mes-annonces-preferees"
+          Component={MyFavoritePage}
+        ></Route>
+        <Route
+          path="/mon-profile/creer-une-annonce"
+          Component={CreationAnnoncePage}
+        ></Route>
+        <Route
+          path="/mon-profile/mes-propres-annonces"
+          Component={MesPropresAnnonces}
+        ></Route>
       </Routes>
-
       <Footer />
     </>
   );
