@@ -1,42 +1,56 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+@font-face {
+  font-family: "intertight";
+  src: url("./assets/fonts/InterTight-VariableFont_wght.ttf")
+  format("truetype");
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+@font-face {
+  font-family: "inter";
+  src: url("./assets/fonts/Inter-VariableFont_slnt\,wght.ttf")
+  format("truetype");
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+html {
+  --background-green:#F88F6F;
+  --background-white:#F0F4EF;
+  --background-blue1:#4977B3;
+  --background-blue2:#3A4682;
+  --background-black:#0D1821;
+  --background-mauvefonce:#C28EB2;
+  --background-mauveclair:#D7B3CD;
+  --background-violet:#382449;
+
+  --width-footer:100%;
+  --height-footer:6rem;
+
+  --width-navbar:100%;
+  --height-navbar:4rem;
+
+  --width-header:100%;
+  --height-header:45rem;
+
+  --width-about:100%;
+  --height-about:22rem;
+
+  --width-explications:100%;
+  --height-explications:25rem;
+
+  --width-list:100%;
+  --height-list:40rem;
+
 }
 
-.card {
-  padding: 2em;
-}
+body {
+  font-family: "inter", sans-serif;
+  padding-bottom: var(--height-footer);
+  margin: 0;
+  padding: 0;
 
-.read-the-docs {
-  color: #888;
 }
