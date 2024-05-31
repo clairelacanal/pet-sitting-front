@@ -25,9 +25,6 @@ function Navbar() {
           <button onClick={logOut}>Se déconnecter</button>
         </>
       )}
-      <li>Home</li>
-      <li>Annonce</li>
-      <li>Contact</li>
     </nav>
   );
 }
