@@ -22,6 +22,7 @@ function Navbar() {
       {user && (
         <>
           <NavLink to="/annonces">Les annonces</NavLink>
+          <NavLink to="/mon-profile">Mon profile</NavLink>
           <button onClick={logOut}>Se déconnecter</button>
         </>
       )}
