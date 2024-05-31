@@ -19,8 +19,7 @@ function LoginPage() {
     e.preventDefault();
 
     try {
-      const response = await apiHandler.post("/connexion", loginForm);
-
+      const response = await apiHandler.login(loginForm);
       updateToken(response.data.authToken);
     } catch (error) {
       setError(error.message);

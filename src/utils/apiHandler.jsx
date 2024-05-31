@@ -24,7 +24,7 @@ class ApiHandler {
   }
 
   login(creadentials) {
-    return this.api.post("/connexion", creadentials);
+    return this.api.post("/users/login", creadentials);
   }
 
   signup(data) {
@@ -35,8 +35,8 @@ class ApiHandler {
     return this.api.get("/annonces");
   }
 
-  getProfile() {
-    return this.api.get("/mon-profile");
+  getUser() {
+    return this.api.get("/users/my-profile");
   }
 
   createAnnonce(annonceData) {
