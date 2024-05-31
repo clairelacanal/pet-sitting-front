@@ -40,11 +40,11 @@ class ApiHandler {
   }
 
   createAnnonce(annonceData) {
-    return this.api.post("/mon-profile/creer-une-annonce", annonceData);
+    return this.api.post("/annonces", annonceData);
   }
 
   getFav() {
-    return this.api.get("/mon-profile/mes-annonces-preferees");
+    return this.api.get("/annonces");
   }
 
   getMesPropresAnnonces() {

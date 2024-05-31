@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import apiHandler from "../utils/apiHandler";
 
 function CreationAnnoncePage() {
@@ -8,7 +8,8 @@ function CreationAnnoncePage() {
     photo: "",
     city: "",
     description: "",
-    date: "",
+    startDate: "",
+    endDate: "",
   });
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -21,21 +22,33 @@ function CreationAnnoncePage() {
     e.preventDefault();
 
     try {
-      await apiHandler.createAnnonce(annonceForm);
-
+      await apiHandler.createAnnonce({
+        ...annonceForm,
+        startDate: new Date(annonceForm.startDate),
+        endDate: new Date(annonceForm.endDate),
+      });
       navigate("/annonces");
     } catch (error) {
       setError(error.message);
     }
   }
+
   return (
     <div>
       {error && <div>{error}</div>}
-
       <form method="post" onSubmit={handleSubmit}>
         <label htmlFor="kind">
           Catégorie
-          <input type="text" name="kind" id="kind" onChange={handleChange} />
+          <select
+            name="kind"
+            id="kind"
+            onChange={handleChange}
+            value={annonceForm.kind}
+          >
+            <option value="">Sélectionnez...</option>
+            <option value="Owner">Propriétaire</option>
+            <option value="Sitter">Gardien</option>
+          </select>
         </label>
         <label htmlFor="photo">
           Image
@@ -53,9 +66,23 @@ function CreationAnnoncePage() {
             onChange={handleChange}
           ></textarea>
         </label>
-        <label htmlFor="date">
-          Date
-          <textarea name="date" id="date" onChange={handleChange}></textarea>
+        <label htmlFor="startDate">
+          Date de début
+          <input
+            type="datetime-local"
+            name="startDate"
+            id="startDate"
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="endDate">
+          Date de fin
+          <input
+            type="datetime-local"
+            name="endDate"
+            id="endDate"
+            onChange={handleChange}
+          />
         </label>
         <input type="submit" value="Valider" />
       </form>
