@@ -1,27 +1,22 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import apiHandler from "../../utils/apiHandler";
 
 function Searchbar() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [results, setResults] = useState([]);
+  const navigate = useNavigate(); // useHistory n'existe plus, je remplace par useNavigate
 
-  // Fonction pour gérer les changements de la barre de recherche
   const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
+    setSearchTerm(event.target.value); //ma nouvelle valeur rentrée dans l'input change mon state
   };
 
   // Fonction pour effectuer la recherche
   const handleSearch = async () => {
-    if (!searchTerm) {
-      alert("Veuillez entrer un terme de recherche.");
-      return;
-    }
     try {
-      const response = await apiHandler.getAnnoncesByCity(searchTerm);
-      setResults(response.data); // Stocker les résultats de la recherche dans l'état
+      await apiHandler.getAnnoncesByCity(searchTerm);
+      navigate(`/annonces?city=${encodeURIComponent(searchTerm)}`); // Remplace history.push et m'envoie sur la page Annonces
     } catch (error) {
       console.error("Erreur lors de la recherche:", error);
-      alert("Erreur lors de la recherche");
     }
   };
 
@@ -34,15 +29,6 @@ function Searchbar() {
         onChange={handleSearchChange}
       />
       <button onClick={handleSearch}>Rechercher</button>
-      {results.length > 0 && (
-        <ul>
-          {results.map((annonce, index) => (
-            <li key={index}>
-              {annonce.city} - {annonce.description}
-            </li>
-          ))}
-        </ul>
-      )}
     </>
   );
 }
