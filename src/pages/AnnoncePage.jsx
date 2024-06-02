@@ -1,11 +1,14 @@
+import "../components/CARDS/Cards.css";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import apiHandler from "../utils/apiHandler";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
+import SidebarFiltering from "../components/SIDEBAR/SidebarFiltering";
 
 function AnnoncePage() {
   const [annonces, setAnnonces] = useState([]);
+  const [filters, setFilters] = useState({});
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem("favorites")) || []
   );
@@ -42,30 +45,40 @@ function AnnoncePage() {
     localStorage.setItem("favorites", JSON.stringify(newFavorites));
   };
 
+  const handleFilterChange = (newFilters) => {
+    setFilters(newFilters);
+    // Faire une requête au serveur ici si nécessaire
+  };
+
   return (
-    <div>
-      {annonces.map((annonce) => (
-        <div key={annonce._id}>
-          <h3>{annonce.kind}</h3>
-          <p>{annonce.photo}</p>
-          <p>{annonce.city}</p>
-          <p>{annonce.description}</p>
-          <p>
-            Du {annonce.startDate} au {annonce.endDate}
-          </p>
-          <p>
-            <FontAwesomeIcon
-              icon={faHeartSolid}
-              onClick={() => handleFavorite(annonce._id)}
-              style={{
-                color: favorites.includes(annonce._id) ? "red" : "grey",
-              }}
-            />
-            Mon annonce préférée
-          </p>
-          <Link to={`/annonces/${annonce._id}`}>Voir +</Link>
-        </div>
-      ))}
+    <div className="container-allAnnonces">
+      <div>
+        <SidebarFiltering onFilterChange={handleFilterChange} />
+      </div>
+      <div className="annonces-list">
+        {annonces.map((annonce) => (
+          <div key={annonce._id}>
+            <h3>{annonce.kind}</h3>
+            <p>{annonce.photo}</p>
+            <p>{annonce.city}</p>
+            <p>{annonce.description}</p>
+            <p>
+              Du {annonce.startDate} au {annonce.endDate}
+            </p>
+            <p>
+              <FontAwesomeIcon
+                icon={faHeartSolid}
+                onClick={() => handleFavorite(annonce._id)}
+                style={{
+                  color: favorites.includes(annonce._id) ? "red" : "grey",
+                }}
+              />
+              Mon annonce préférée
+            </p>
+            <Link to={`/annonces/${annonce._id}`}>Voir +</Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

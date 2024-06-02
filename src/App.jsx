@@ -15,6 +15,7 @@ import CreationAnnoncePage from "./pages/CreationAnnoncePage";
 import MesPropresAnnonces from "./pages/MesPropresAnnonces";
 import IsPublicLayout from "./components/IsPublicLayout";
 import IsPrivateLayout from "./components/IsPrivateLayout";
+import SidebarFiltering from "./components/SIDEBAR/SidebarFiltering";
 
 function App() {
   const { isLoading } = useContext(AuthContext);
