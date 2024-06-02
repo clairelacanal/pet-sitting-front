@@ -23,7 +23,7 @@ function MyFavoritePage() {
     };
 
     fetchFavorites();
-  }, [favorites]); // Ajouter `favorites` comme dépendance pour recharger à la mise à jour
+  }, [favorites]);
 
   const handleRemoveFavorite = (id) => {
     const newFavorites = favorites.filter((favId) => favId !== id);

@@ -35,6 +35,10 @@ class ApiHandler {
     return this.api.get("/annonces");
   }
 
+  getAnnoncesByCity(city) {
+    return this.api.get(`/annonces?city=${encodeURIComponent(city)}`);
+  }
+
   getAnnonceById(annonceId) {
     return this.api.get(`/annonces/${annonceId}`);
   }
@@ -51,8 +55,8 @@ class ApiHandler {
     return this.api.get("/annonces");
   }
 
-  getMesPropresAnnonces() {
-    return this.api.get("/mon-profile/mes-propres-annonces");
+  getAnnoncesByUserId(userId) {
+    return this.api.get(`/annonces/user/${userId}`);
   }
 }
 

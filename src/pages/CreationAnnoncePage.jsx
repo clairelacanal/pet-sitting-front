@@ -24,10 +24,12 @@ function CreationAnnoncePage() {
     try {
       await apiHandler.createAnnonce({
         ...annonceForm,
+        userId: "userId",
         startDate: new Date(annonceForm.startDate),
         endDate: new Date(annonceForm.endDate),
       });
       navigate("/annonces");
+      navigate("/mes-propres-annonces");
     } catch (error) {
       setError(error.message);
     }

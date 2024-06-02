@@ -28,10 +28,10 @@ function App() {
         <Navbar />
       </header>
       <Routes>
+        <Route path="/" Component={HomePage}></Route>
         <Route Component={IsPublicLayout}>
           <Route path="/creer-un-compte" Component={SignupPage}></Route>
           <Route path="/connexion" Component={LoginPage}></Route>
-          <Route path="/" Component={HomePage}></Route>
         </Route>
 
         <Route Component={IsPrivateLayout}>
@@ -50,7 +50,7 @@ function App() {
             Component={CreationAnnoncePage}
           ></Route>
           <Route
-            path="/mon-profile/mes-propres-annonces"
+            path="/mon-profile/mes-propres-annonces/:annonceId"
             Component={MesPropresAnnonces}
           ></Route>
         </Route>
