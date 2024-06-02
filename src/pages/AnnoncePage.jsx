@@ -33,6 +33,26 @@ function AnnoncePage() {
     fetchAnnonces();
   }, [location.search]); // Dépendance sur location.search pour recharger lors du changement de paramètres
 
+  useEffect(() => {
+    const fetchAnnonces = async () => {
+      try {
+        // Construire l'URL avec les filtres
+        const query = new URLSearchParams(filters).toString();
+        const response = await apiHandler.getAnnoncesByFilters(query);
+        setAnnonces(response.data);
+      } catch (error) {
+        console.error(
+          "Erreur lors de la récupération des annonces filtrées",
+          error
+        );
+      }
+    };
+
+    if (Object.keys(filters).length > 0) {
+      fetchAnnonces();
+    }
+  }, [filters]); // Dépendance sur les filtres pour recharger lorsqu'ils changent
+
   // fonction pour obtenir les annonces favorites
   const handleFavorite = (id) => {
     let newFavorites = [...favorites];
@@ -56,28 +76,32 @@ function AnnoncePage() {
         <SidebarFiltering onFilterChange={handleFilterChange} />
       </div>
       <div className="annonces-list">
-        {annonces.map((annonce) => (
-          <div key={annonce._id}>
-            <h3>{annonce.kind}</h3>
-            <p>{annonce.photo}</p>
-            <p>{annonce.city}</p>
-            <p>{annonce.description}</p>
-            <p>
-              Du {annonce.startDate} au {annonce.endDate}
-            </p>
-            <p>
-              <FontAwesomeIcon
-                icon={faHeartSolid}
-                onClick={() => handleFavorite(annonce._id)}
-                style={{
-                  color: favorites.includes(annonce._id) ? "red" : "grey",
-                }}
-              />
-              Mon annonce préférée
-            </p>
-            <Link to={`/annonces/${annonce._id}`}>Voir +</Link>
-          </div>
-        ))}
+        {annonces.length > 0 ? (
+          annonces.map((annonce) => (
+            <div key={annonce._id}>
+              <h3>{annonce.kind}</h3>
+              <p>{annonce.photo}</p>
+              <p>{annonce.city}</p>
+              <p>{annonce.description}</p>
+              <p>
+                Du {annonce.startDate} au {annonce.endDate}
+              </p>
+              <p>
+                <FontAwesomeIcon
+                  icon={faHeartSolid}
+                  onClick={() => handleFavorite(annonce._id)}
+                  style={{
+                    color: favorites.includes(annonce._id) ? "red" : "grey",
+                  }}
+                />
+                Mon annonce préférée
+              </p>
+              <Link to={`/annonces/${annonce._id}`}>Voir +</Link>
+            </div>
+          ))
+        ) : (
+          <p>Aucune annonce trouvée pour les critères sélectionnés.</p>
+        )}
       </div>
     </div>
   );

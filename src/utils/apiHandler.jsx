@@ -39,6 +39,10 @@ class ApiHandler {
     return this.api.get(`/annonces?city=${encodeURIComponent(city)}`);
   }
 
+  getAnnoncesByFilters(query) {
+    return this.api.get(`/annonces?${query}`);
+  }
+
   getAnnonceById(annonceId) {
     return this.api.get(`/annonces/${annonceId}`);
   }

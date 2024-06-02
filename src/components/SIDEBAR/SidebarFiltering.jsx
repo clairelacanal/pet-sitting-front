@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SidebarFiltering.css";
 
 function SidebarFiltering({ onFilterChange }) {
   const [kind, setKind] = useState("");
@@ -12,8 +13,7 @@ function SidebarFiltering({ onFilterChange }) {
   };
 
   return (
-    <div>
-      <h1>Je suis la Sidebar</h1>
+    <div className="container-sidebar">
       <div>
         <label>Type d'animal:</label>
         <select
@@ -22,7 +22,6 @@ function SidebarFiltering({ onFilterChange }) {
             setKind(e.target.value);
             handleFilterChange();
           }}
-          onBlur={handleFilterChange}
         >
           <option value="">Tous</option>
           <option value="chien">Chien</option>
@@ -40,7 +39,6 @@ function SidebarFiltering({ onFilterChange }) {
             setAgeCategory(e.target.value);
             handleFilterChange();
           }}
-          onBlur={handleFilterChange}
         >
           <option value="">Tous les âges</option>
           <option value="older">Plus de 5 ans</option>
@@ -55,7 +53,6 @@ function SidebarFiltering({ onFilterChange }) {
             setGender(e.target.value);
             handleFilterChange();
           }}
-          onBlur={handleFilterChange}
         >
           <option value="">Tous</option>
           <option value="Male">Male</option>
@@ -70,7 +67,6 @@ function SidebarFiltering({ onFilterChange }) {
             setHealthStatus(e.target.value);
             handleFilterChange();
           }}
-          onBlur={handleFilterChange}
         >
           <option value="">Tous</option>
           <option value="sain">Sain</option>
@@ -78,6 +74,7 @@ function SidebarFiltering({ onFilterChange }) {
           <option value="malade">Malade</option>
         </select>
       </div>
+      <button onClick={handleFilterChange}>Rechercher</button>
     </div>
   );
 }
