@@ -2,14 +2,14 @@ import { useState } from "react";
 import "./SidebarFiltering.css";
 
 function SidebarFiltering({ onFilterChange }) {
-  const [kind, setKind] = useState("");
+  const [kindAnimal, setKindAnimal] = useState("");
   const [healthStatus, setHealthStatus] = useState("");
   const [ageCategory, setAgeCategory] = useState("");
   const [gender, setGender] = useState("");
 
   // fonction pour gérer les filtres et transmettre au parent
   const handleFilterChange = () => {
-    onFilterChange({ kind, healthStatus, ageCategory, gender });
+    onFilterChange({ kindAnimal, healthStatus, ageCategory, gender });
   };
 
   return (
@@ -17,9 +17,9 @@ function SidebarFiltering({ onFilterChange }) {
       <div>
         <label>Type d'animal:</label>
         <select
-          value={kind}
+          value={kindAnimal}
           onChange={(e) => {
-            setKind(e.target.value);
+            setKindAnimal(e.target.value);
             handleFilterChange();
           }}
         >
