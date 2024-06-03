@@ -17,6 +17,7 @@ import IsPublicLayout from "./components/IsPublicLayout";
 import IsPrivateLayout from "./components/IsPrivateLayout";
 import SidebarFiltering from "./components/SIDEBAR/SidebarFiltering";
 import CreationAnimalPage from "./pages/CreationAnimalPage";
+import AnimauxPage from "./pages/AnimauxPage";
 
 function App() {
   const { isLoading } = useContext(AuthContext);
@@ -46,6 +47,10 @@ function App() {
           <Route
             path="/mon-profile/creer-un-animal"
             Component={CreationAnimalPage}
+          ></Route>
+          <Route
+            path="/mon-profile/mes-animaux"
+            Component={AnimauxPage}
           ></Route>
           <Route
             path="/mon-profile/mes-annonces-preferees"

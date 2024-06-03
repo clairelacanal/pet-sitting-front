@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function CreationAnimalPage() {
   const [animalForm, setAnimalForm] = useState({
     name: "",
-    photo: "",
+    photoPet: "",
     kindAnimal: "",
     breed: "",
     age: "",
@@ -21,13 +21,14 @@ function CreationAnimalPage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    console.log("mon animal:", animalForm);
 
     try {
-      await apiHandler.createAnnoncePet({
-        ...animalForm,
-      });
-      navigate("/mes-animaux");
+      const response = await apiHandler.createAnnoncePet(animalForm);
+      console.log("API response", response);
+      navigate("/mon-profile/mes-animaux");
     } catch (error) {
+      console.error("API error", error);
       setError(error.message);
     }
   }
@@ -55,9 +56,14 @@ function CreationAnimalPage() {
             <option value="rongeur">Rongeur</option>
           </select>
         </label>
-        <label htmlFor="photo">
+        <label htmlFor="photoPet">
           Image
-          <input type="text" name="photo" id="photo" onChange={handleChange} />
+          <input
+            type="text"
+            name="photoPet"
+            id="photoPet"
+            onChange={handleChange}
+          />
         </label>
         <label htmlFor="breed">
           Race
@@ -76,10 +82,10 @@ function CreationAnimalPage() {
         <label htmlFor="gender">
           Genre
           <select
-            name="genre"
-            id="genre"
+            name="gender"
+            id="gender"
             onChange={handleChange}
-            value={animalForm.genre}
+            value={animalForm.gender}
           >
             <option value="">Sélectionnez...</option>
             <option value="Male">Mâle</option>
