@@ -51,7 +51,7 @@ function App() {
             Component={CreationAnnoncePage}
           ></Route>
           <Route
-            path="/mon-profile/mes-propres-annonces/:annonceId"
+            path="/mon-profile/mes-propres-annonces"
             Component={MesPropresAnnonces}
           ></Route>
         </Route>

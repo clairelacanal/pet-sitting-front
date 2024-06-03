@@ -6,19 +6,12 @@ const AuthContext = createContext();
 function AuthContextProvider({ children }) {
   const [user, setUser] = useState(null);
   const [authToken, setAuthToken] = useState(localStorage.getItem("authToken"));
-  const [authName, setAuthName] = useState(localStorage.getItem("authName"));
   const [isLoading, setIsLoading] = useState(false);
 
   // Fonction centralisée pour la mise à jour du token
   function updateToken(token) {
     localStorage.setItem("authToken", token || "");
     setAuthToken(token);
-  }
-
-  // Fonction centralisée pour la mise à jour du nom d'utilisateur
-  function updateName(userName) {
-    localStorage.setItem("authName", userName || "");
-    setAuthName(userName);
   }
 
   // Chargement de l'utilisateur basé sur le authToken
@@ -47,9 +40,7 @@ function AuthContextProvider({ children }) {
   const contextValue = {
     user,
     authToken,
-    authName,
     updateToken,
-    updateName,
     isLoading,
   };
 

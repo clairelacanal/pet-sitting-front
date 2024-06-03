@@ -59,8 +59,16 @@ class ApiHandler {
     return this.api.get("/annonces");
   }
 
-  getAnnoncesByUserId(userId) {
-    return this.api.get(`/annonces/user/${userId}`);
+  //getAnnoncesByUserId(userId) {
+  //return this.api.get(`/annonces/user/${userId}`);
+  //}
+
+  getMyAnnonces() {
+    return this.api.get(`/users/my-profile/annonces`);
+  }
+
+  deleteAnnonceById(annonceId) {
+    return this.api.delete(`/annonces/${annonceId}`);
   }
 }
 

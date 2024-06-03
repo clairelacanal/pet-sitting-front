@@ -3,11 +3,14 @@ import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
 function MyProfilePage() {
-  const { authName } = useContext(AuthContext); // Utilisation directe de authName
+  const { user, isLoading } = useContext(AuthContext); // Utilisation directe de authName
+  if (isLoading) {
+    return <></>;
+  }
 
   return (
     <>
-      <h1>Salut {authName}</h1>
+      <h1>Salut {user.userName}</h1>
       <Link to="/mon-profile/creer-une-annonce">Créer une annonce</Link>
       <Link to="/mon-profile/mes-annonces-preferees">
         Mes annonces préférées
