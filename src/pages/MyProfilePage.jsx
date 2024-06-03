@@ -11,6 +11,7 @@ function MyProfilePage() {
   return (
     <>
       <h1>Salut {user.userName}</h1>
+      <Link to="/mon-profile/creer-un-animal">Créer un animal</Link>
       <Link to="/mon-profile/creer-une-annonce">Créer une annonce</Link>
       <Link to="/mon-profile/mes-annonces-preferees">
         Mes annonces préférées

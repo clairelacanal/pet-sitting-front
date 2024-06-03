@@ -55,6 +55,10 @@ class ApiHandler {
     return this.api.post("/annonces", annonceData);
   }
 
+  createAnnoncePet(petData) {
+    return this.api.post("/pets", petData);
+  }
+
   getFav() {
     return this.api.get("/annonces");
   }

@@ -16,6 +16,7 @@ import MesPropresAnnonces from "./pages/MesPropresAnnonces";
 import IsPublicLayout from "./components/IsPublicLayout";
 import IsPrivateLayout from "./components/IsPrivateLayout";
 import SidebarFiltering from "./components/SIDEBAR/SidebarFiltering";
+import CreationAnimalPage from "./pages/CreationAnimalPage";
 
 function App() {
   const { isLoading } = useContext(AuthContext);
@@ -42,6 +43,10 @@ function App() {
             Component={DetailsAnnoncePage}
           ></Route>
           <Route path="/mon-profile" Component={MyProfilePage}></Route>
+          <Route
+            path="/mon-profile/creer-un-animal"
+            Component={CreationAnimalPage}
+          ></Route>
           <Route
             path="/mon-profile/mes-annonces-preferees"
             Component={MyFavoritePage}
