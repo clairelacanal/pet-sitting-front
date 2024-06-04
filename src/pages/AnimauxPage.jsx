@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import apiHandler from "../utils/apiHandler";
+import { Link } from "react-router-dom";
 
 function AnimauxPage() {
   const [annoncesPet, setAnnoncesPet] = useState([]);
@@ -40,7 +41,7 @@ function AnimauxPage() {
               <p>Genre: {pet.gender}</p>
               <p>État de santé: {pet.healthStatus}</p>
               <button onClick={() => deletePet(pet._id)}>Delete</button>
-              <button>Details</button>
+              <Link to={`/mon-profile/mes-animaux/${pet._id}`}>Voir +</Link>
             </div>
           ))
         ) : (
