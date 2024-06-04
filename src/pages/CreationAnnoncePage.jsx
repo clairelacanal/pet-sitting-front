@@ -1,4 +1,5 @@
 import { useState } from "react";
+import FormAnnonce from "../components/FORM/Form";
 import { useNavigate, useParams } from "react-router-dom";
 import apiHandler from "../utils/apiHandler";
 
@@ -35,43 +36,10 @@ function CreationAnnoncePage({ kind }) {
       setError(error.message);
     }
   }
-
   return (
     <div>
       {error && <div>{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="city">
-          Ville
-          <input type="text" name="city" id="city" onChange={handleChange} />
-        </label>
-        <label htmlFor="description">
-          Description
-          <textarea
-            name="description"
-            id="description"
-            onChange={handleChange}
-          ></textarea>
-        </label>
-        <label htmlFor="startDate">
-          Date de début
-          <input
-            type="datetime-local"
-            name="startDate"
-            id="startDate"
-            onChange={handleChange}
-          />
-        </label>
-        <label htmlFor="endDate">
-          Date de fin
-          <input
-            type="datetime-local"
-            name="endDate"
-            id="endDate"
-            onChange={handleChange}
-          />
-        </label>
-        <input type="submit" value="Valider" />
-      </form>
+      <FormAnnonce handleSubmit={handleSubmit} handleChange={handleChange} />
     </div>
   );
 }
