@@ -62,8 +62,12 @@ function App() {
             Component={MyFavoritePage}
           ></Route>
           <Route
+            path="/mon-profile/mes-animaux/:petId/creer-une-annonce"
+            element={<CreationAnnoncePage kind="Owner" />}
+          ></Route>
+          <Route
             path="/mon-profile/creer-une-annonce"
-            Component={CreationAnnoncePage}
+            element={<CreationAnnoncePage kind="Sitter" />}
           ></Route>
           <Route
             path="/mon-profile/mes-propres-annonces"

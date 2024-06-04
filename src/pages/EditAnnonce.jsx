@@ -6,8 +6,6 @@ function EditAnnonce() {
   const { annonceId } = useParams();
   const navigate = useNavigate();
   const [annonce, setAnnonce] = useState({
-    kind: "",
-    photo: "",
     city: "",
     description: "",
     startDate: "",
@@ -35,7 +33,7 @@ function EditAnnonce() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(annonce);
     try {
       await apiHandler.updateAnnonce(annonceId, annonce);
       navigate("/mon-profile/mes-propres-annonces");
@@ -49,24 +47,6 @@ function EditAnnonce() {
       <h1>Modifier Annonce</h1>
       {error && <div>{error}</div>}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="kind">
-          Catégorie
-          <select name="kind" value={annonce.kind} onChange={handleChange}>
-            <option value="">Sélectionnez...</option>
-            <option value="Owner">Propriétaire</option>
-            <option value="Sitter">Gardien</option>
-          </select>
-        </label>
-        <label htmlFor="photo">
-          Image
-          <input
-            type="text"
-            name="photo"
-            id="photo"
-            value={annonce.photo}
-            onChange={handleChange}
-          />
-        </label>
         <label htmlFor="city">
           Ville
           <input

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import apiHandler from "../utils/apiHandler";
+import { Link } from "react-router-dom";
 
 function AnimalDetails() {
   const { petId } = useParams();
@@ -30,7 +31,9 @@ function AnimalDetails() {
       <p>{pet.age}</p>
       <p>{pet.gender}</p>
       <p>{pet.healthStatus}</p>
-      <button>Créer une annonce</button>
+      <Link to={`/mon-profile/mes-animaux/${pet._id}/creer-une-annonce`}>
+        Créer une annonce
+      </Link>
     </div>
   );
 }

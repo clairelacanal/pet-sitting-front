@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import apiHandler from "../utils/apiHandler";
 
-function CreationAnnoncePage() {
+function CreationAnnoncePage({ kind }) {
+  const { petId } = useParams();
+  console.log(petId, "===");
   const [annonceForm, setAnnonceForm] = useState({
-    kind: "",
-    photo: "",
+    petId: petId,
+    kind: kind,
     city: "",
     description: "",
     startDate: "",
@@ -24,13 +26,12 @@ function CreationAnnoncePage() {
     try {
       await apiHandler.createAnnonce({
         ...annonceForm,
-        userId: "userId",
         startDate: new Date(annonceForm.startDate),
         endDate: new Date(annonceForm.endDate),
       });
-      navigate("/annonces");
-      navigate("/mes-propres-annonces");
+      navigate("/mon-profile/mes-propres-annonces");
     } catch (error) {
+      console.error("Failed to create annonce", error);
       setError(error.message);
     }
   }
@@ -38,24 +39,7 @@ function CreationAnnoncePage() {
   return (
     <div>
       {error && <div>{error}</div>}
-      <form method="post" onSubmit={handleSubmit}>
-        <label htmlFor="kind">
-          Catégorie
-          <select
-            name="kind"
-            id="kind"
-            onChange={handleChange}
-            value={annonceForm.kind}
-          >
-            <option value="">Sélectionnez...</option>
-            <option value="Owner">Propriétaire</option>
-            <option value="Sitter">Gardien</option>
-          </select>
-        </label>
-        <label htmlFor="photo">
-          Image
-          <input type="text" name="photo" id="photo" onChange={handleChange} />
-        </label>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="city">
           Ville
           <input type="text" name="city" id="city" onChange={handleChange} />

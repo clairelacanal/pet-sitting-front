@@ -80,7 +80,7 @@ function AnnoncePage() {
           annonces.map((annonce) => (
             <div key={annonce._id}>
               <h3>{annonce.kind}</h3>
-              <p>{annonce.photo}</p>
+              <p>{annonce.pet?.petPhoto}</p>
               <p>{annonce.city}</p>
               <p>{annonce.description}</p>
               <p>
