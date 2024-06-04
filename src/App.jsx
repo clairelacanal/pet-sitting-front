@@ -18,6 +18,7 @@ import IsPrivateLayout from "./components/IsPrivateLayout";
 import CreationAnimalPage from "./pages/CreationAnimalPage";
 import AnimauxPage from "./pages/AnimauxPage";
 import AnimalDetails from "./pages/AnimalDetails";
+import EditAnnonce from "./pages/EditAnnonce";
 
 function App() {
   const { isLoading } = useContext(AuthContext);
@@ -67,6 +68,10 @@ function App() {
           <Route
             path="/mon-profile/mes-propres-annonces"
             Component={MesPropresAnnonces}
+          ></Route>
+          <Route
+            path="/mon-profile/mes-propres-annonces/editer/:annonceId"
+            Component={EditAnnonce}
           ></Route>
         </Route>
       </Routes>

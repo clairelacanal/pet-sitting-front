@@ -47,6 +47,10 @@ class ApiHandler {
     return this.api.get(`/annonces/${annonceId}`);
   }
 
+  updateAnnonce(annonceId) {
+    return this.api.put(`/annonces/${annonceId}`);
+  }
+
   getAnnoncePetById(petId) {
     return this.api.get(`/pets/${petId}`);
   }

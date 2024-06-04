@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import apiHandler from "../utils/apiHandler";
+import { Link } from "react-router-dom";
 
 function MesPropresAnnonces() {
   const [mesAnnonces, setMesAnnonces] = useState([]);
@@ -51,7 +52,11 @@ function MesPropresAnnonces() {
             <button onClick={() => deleteAnnonce(annonce._id)}>
               Supprimer
             </button>
-            <button>Editer</button>
+            <Link
+              to={`/mon-profile/mes-propres-annonces/editer/${annonce._id}`}
+            >
+              Editer
+            </Link>
           </div>
         ))}
         {mesAnnonces.length === 0 && <p>Aucune annonce disponible.</p>}
