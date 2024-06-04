@@ -4,17 +4,27 @@ import apiHandler from "../utils/apiHandler";
 function AnimauxPage() {
   const [annoncesPet, setAnnoncesPet] = useState([]);
 
+  const fetchAnnoncesPet = async () => {
+    try {
+      const response = await apiHandler.getAllAnnoncesPet();
+      setAnnoncesPet(response.data);
+    } catch (error) {
+      console.log("Erreur pour récupérer ma liste d'animaux", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchAnnoncesPet = async () => {
-      try {
-        const response = await apiHandler.getAllAnnoncesPet();
-        setAnnoncesPet(response.data);
-      } catch (error) {
-        console.log("Erreur pour récupérer ma liste d'animaux", error);
-      }
-    };
     fetchAnnoncesPet();
   }, []);
+
+  const deletePet = async (petId) => {
+    try {
+      await apiHandler.deletePetById(petId);
+      fetchAnnoncesPet();
+    } catch (error) {
+      console.log("Erreur lors de la supression de l'animal", error);
+    }
+  };
 
   return (
     <div className="container-pets">
@@ -29,7 +39,7 @@ function AnimauxPage() {
               <p>Age: {pet.age}</p>
               <p>Genre: {pet.gender}</p>
               <p>État de santé: {pet.healthStatus}</p>
-              <button>Delete</button>
+              <button onClick={() => deletePet(pet._id)}>Delete</button>
               <button>Details</button>
             </div>
           ))

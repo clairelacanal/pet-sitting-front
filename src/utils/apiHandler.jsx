@@ -78,6 +78,10 @@ class ApiHandler {
   deleteAnnonceById(annonceId) {
     return this.api.delete(`/annonces/${annonceId}`);
   }
+
+  deletePetById(petId) {
+    return this.api.delete(`pets/${petId}`);
+  }
 }
 
 const apiHandler = new ApiHandler();
