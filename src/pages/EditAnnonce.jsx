@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import apiHandler from "../utils/apiHandler";
+import FormAnnonce from "../components/FORM/Form";
 
 function EditAnnonce() {
   const { annonceId } = useParams();
@@ -46,48 +47,11 @@ function EditAnnonce() {
     <div>
       <h1>Modifier Annonce</h1>
       {error && <div>{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="city">
-          Ville
-          <input
-            type="text"
-            name="city"
-            id="city"
-            value={annonce.city}
-            onChange={handleChange}
-          />
-        </label>
-        <label htmlFor="description">
-          Description
-          <textarea
-            name="description"
-            id="description"
-            value={annonce.description}
-            onChange={handleChange}
-          ></textarea>
-        </label>
-        <label htmlFor="startDate">
-          Date de début
-          <input
-            type="datetime-local"
-            name="startDate"
-            id="startDate"
-            value={annonce.startDate.slice(0, 16)}
-            onChange={handleChange}
-          />
-        </label>
-        <label htmlFor="endDate">
-          Date de fin
-          <input
-            type="datetime-local"
-            name="endDate"
-            id="endDate"
-            value={annonce.endDate.slice(0, 16)}
-            onChange={handleChange}
-          />
-        </label>
-        <input type="submit" value="Mettre à jour" />
-      </form>
+      <FormAnnonce
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        formData={annonce}
+      />
     </div>
   );
 }

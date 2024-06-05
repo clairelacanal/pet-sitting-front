@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import apiHandler from "../utils/apiHandler";
-import { Link } from "react-router-dom";
+import Cards from "../components/CARDS/Cards";
 
 function MesPropresAnnonces() {
   const [mesAnnonces, setMesAnnonces] = useState([]);
@@ -21,45 +21,37 @@ function MesPropresAnnonces() {
     }
   };
 
+  const deleteAnnonce = async (annonceId) => {
+    try {
+      await apiHandler.deletePetById(annonceId);
+      setMesAnnonces(
+        mesAnnonces.filter((annonce) => annonce._id !== annonceId)
+      );
+    } catch (error) {
+      console.log("Erreur lors de la supression de l'annonce", error);
+    }
+  };
+
   useEffect(() => {
     fetchMesAnnonces();
   }, []);
 
-  if (isLoading) return <div>Loading...</div>; // Affichage pendant le chargement
-
-  const deleteAnnonce = async (annonceId) => {
-    try {
-      await apiHandler.deleteAnnonceById(annonceId);
-      fetchMesAnnonces();
-    } catch (error) {
-      console.log("erreur lors de la suppression de l'annonce", error);
-    }
-  };
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <>
       <h1>Mes propres annonces</h1>
       <div>
         {mesAnnonces.map((annonce) => (
-          <div key={annonce._id}>
-            <h3>{annonce.kind}</h3>
-            <p>{annonce.photo}</p>
-            <p>{annonce.city}</p>
-            <p>{annonce.description}</p>
-            <p>
-              Du {annonce.startDate} au {annonce.endDate}
-            </p>
-            <button onClick={() => deleteAnnonce(annonce._id)}>
-              Supprimer
-            </button>
-            <Link
-              to={`/mon-profile/mes-propres-annonces/editer/${annonce._id}`}
-            >
-              Editer
-            </Link>
-          </div>
+          <Cards
+            key={annonce._id}
+            annonce={annonce}
+            showFavoriteIcon={false}
+            showDeleteButton={true}
+            onDelete={deleteAnnonce}
+          />
         ))}
-        {mesAnnonces.length === 0 && <p>Aucune annonce disponible.</p>}
+        {mesAnnonces.length === 0 && <p>Vous n'avez pas encore d'annonce.</p>}
       </div>
     </>
   );

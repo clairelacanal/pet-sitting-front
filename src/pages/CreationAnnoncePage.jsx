@@ -39,7 +39,11 @@ function CreationAnnoncePage({ kind }) {
   return (
     <div>
       {error && <div>{error}</div>}
-      <FormAnnonce handleSubmit={handleSubmit} handleChange={handleChange} />
+      <FormAnnonce
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        formData={annonceForm}
+      />
     </div>
   );
 }
