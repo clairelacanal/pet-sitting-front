@@ -1,9 +1,15 @@
 .container-home {
-    background-color: aqua;
-    width: 100%;
-    height: 100%;
+    display: flex;
 }
 
-h1 {
-    color: red;
+.container-presentation {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10rem;
 }
+
+.image-presentation {
+    width: 30%;
+    margin-left: 8rem;
+}
+

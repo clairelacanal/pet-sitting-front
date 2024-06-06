@@ -1,0 +1,39 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  input[type="text"] {
+    width: 300px;
+    padding: 10px 20px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  input[type="text"]:focus {
+    border-color: #007BFF;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+  }
+  
+  
+  button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--background-button-icon);
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: var(--background-button-icon);
+  }

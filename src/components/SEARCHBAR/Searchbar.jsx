@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import apiHandler from "../../utils/apiHandler";
+import "./Searchbar.css";
 
 function Searchbar() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -21,15 +22,17 @@ function Searchbar() {
   };
 
   return (
-    <>
+    <div className="search-container">
       <input
         type="text"
         placeholder="Recherche par ville..."
         value={searchTerm}
         onChange={handleSearchChange}
       />
-      <button onClick={handleSearch}>Rechercher</button>
-    </>
+      <button onClick={handleSearch} className="search">
+        Rechercher
+      </button>
+    </div>
   );
 }
 

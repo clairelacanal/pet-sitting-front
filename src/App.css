@@ -18,11 +18,11 @@
 }
 
 html {
-  --background-white:#f1faee;
-  --background-button-icon:#e63946;
-  --background-bleu1:#a8dadc;
-  --background-bleu2:#457b9d;
-  --background-bleu3:#1d3557;
+  --background-white:#FFFFFF;
+  --background-button-icon:#FF97B8;
+  --background-bleu1:#DDEDFA;
+  --background-bleu2:#A2CDEF;
+  --background-bleu3:#72A8D6;
   --color-black:#000814;
 
   --width-footer:100%;
@@ -50,7 +50,11 @@ body {
   padding-bottom: var(--height-footer);
   margin: 0;
   padding: 0;
-  background-color: #f1faee;
+  background-color: var(--background-white);
+}
+
+h1 {
+  color:var(--background-bleu3);
 }
 
 
