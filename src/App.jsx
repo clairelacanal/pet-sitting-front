@@ -78,8 +78,8 @@ function App() {
             path="/mon-profile/mes-propres-annonces/editer/:annonceId"
             Component={EditAnnonce}
           ></Route>
-          <Route path="/*" Component={NotFoundPage}></Route>
         </Route>
+        <Route path="*" Component={NotFoundPage}></Route>
       </Routes>
       <Footer />
     </>
