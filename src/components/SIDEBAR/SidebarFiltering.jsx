@@ -7,16 +7,17 @@ function SidebarFiltering({ onFilterChange }) {
   const [ageCategory, setAgeCategory] = useState("");
   const [gender, setGender] = useState("");
 
-  // fonction pour gérer les filtres et transmettre au parent
   const handleFilterChange = () => {
     onFilterChange({ kindAnimal, healthStatus, ageCategory, gender });
   };
 
   return (
-    <div className="container-sidebar">
-      <div>
-        <label>Type d'animal:</label>
+    <div className="sidebar-container">
+      <div className="filter-group">
+        <label htmlFor="animal-type">Type:</label>
         <select
+          id="animal-type"
+          className="select-input"
           value={kindAnimal}
           onChange={(e) => {
             setKindAnimal(e.target.value);
@@ -31,9 +32,11 @@ function SidebarFiltering({ onFilterChange }) {
           <option value="rongeur">Rongeur</option>
         </select>
       </div>
-      <div>
-        <label>Âge:</label>
+      <div className="filter-group">
+        <label htmlFor="age-category">Âge:</label>
         <select
+          id="age-category"
+          className="select-input"
           value={ageCategory}
           onChange={(e) => {
             setAgeCategory(e.target.value);
@@ -45,9 +48,11 @@ function SidebarFiltering({ onFilterChange }) {
           <option value="younger">5 ans et moins</option>
         </select>
       </div>
-      <div>
-        <label>Genre:</label>
+      <div className="filter-group">
+        <label htmlFor="gender">Genre:</label>
         <select
+          id="gender"
+          className="select-input"
           value={gender}
           onChange={(e) => {
             setGender(e.target.value);
@@ -55,13 +60,15 @@ function SidebarFiltering({ onFilterChange }) {
           }}
         >
           <option value="">Tous</option>
-          <option value="Male">Male</option>
+          <option value="Male">Mâle</option>
           <option value="Femelle">Femelle</option>
         </select>
       </div>
-      <div>
-        <label>Statut de santé:</label>
+      <div className="filter-group">
+        <label htmlFor="health-status">Statut:</label>
         <select
+          id="health-status"
+          className="select-input"
           value={healthStatus}
           onChange={(e) => {
             setHealthStatus(e.target.value);
@@ -74,7 +81,7 @@ function SidebarFiltering({ onFilterChange }) {
           <option value="malade">Malade</option>
         </select>
       </div>
-      <button onClick={handleFilterChange}>Rechercher</button>
+      <button className="search-button">Rechercher</button>
     </div>
   );
 }
