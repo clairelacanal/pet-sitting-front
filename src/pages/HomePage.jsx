@@ -8,7 +8,7 @@ function HomePage() {
       <div className="container-presentation">
         <div className="presentation">
           <h1>Pet-sitting</h1>
-          <p>Le premier site de garde d'animaux en ligne</p>
+          <p>Le premier site de garde d'animaux</p>
           <p>0 soucis, partez tranquille !</p>
         </div>
         <div className="container-search">

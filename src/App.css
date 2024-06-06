@@ -19,12 +19,14 @@
 
 html {
   --background-white:#FFFFFF;
-  --background-button-icon:#FF97B8;
+  --background-rose:#FF97B8;
+  --background-button-icon:#FF7767;
   --background-bleu1:#DDEDFA;
   --background-bleu2:#A2CDEF;
   --background-bleu3:#72A8D6;
+  --background-footer: #F5F5DC;
   --color-black:#000814;
-
+  
   --width-footer:100%;
   --height-footer:6rem;
 

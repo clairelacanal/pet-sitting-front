@@ -26,6 +26,7 @@ function Searchbar() {
       <input
         type="text"
         placeholder="Recherche par ville..."
+        className="search-input"
         value={searchTerm}
         onChange={handleSearchChange}
       />
