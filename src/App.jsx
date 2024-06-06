@@ -19,6 +19,7 @@ import CreationAnimalPage from "./pages/CreationAnimalPage";
 import AnimauxPage from "./pages/AnimauxPage";
 import AnimalDetails from "./pages/AnimalDetails";
 import EditAnnonce from "./pages/EditAnnonce";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   const { isLoading } = useContext(AuthContext);
