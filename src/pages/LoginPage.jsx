@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import apiHandler from "../utils/apiHandler";
+import "./LoginPage.css";
+import { TextField, Button, Typography, Box, Alert } from "@mui/material";
 
 function LoginPage() {
   const [loginForm, setLoginForm] = useState({
@@ -27,33 +29,42 @@ function LoginPage() {
   }
 
   return (
-    <div>
-      {error && <div>{error}</div>}
-
+    <Box sx={{ width: 300, mx: "auto", mt: 5 }}>
+      {error && <Alert severity="error">{error}</Alert>}
+      <Typography variant="h6" sx={{ mb: 2 }} className="typo">
+        Se connecter
+      </Typography>
       <form method="post" onSubmit={handleSubmit}>
-        <label htmlFor="userName">
-          Name
-          <input
-            type="text"
-            name="userName"
-            id="userName"
-            onChange={handleChange}
-          />
-        </label>
-
-        <label htmlFor="password">
-          Password
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onChange={handleChange}
-          />
-        </label>
-
-        <input type="submit" value="Login" />
+        <TextField
+          fullWidth
+          margin="normal"
+          label="Nom"
+          name="userName"
+          value={loginForm.userName}
+          onChange={handleChange}
+          variant="outlined"
+        />
+        <TextField
+          fullWidth
+          margin="normal"
+          label="Mot de passe"
+          name="password"
+          type="password"
+          value={loginForm.password}
+          onChange={handleChange}
+          variant="outlined"
+        />
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          sx={{ mt: 3 }}
+        >
+          Se connecter
+        </Button>
       </form>
-    </div>
+    </Box>
   );
 }
 
