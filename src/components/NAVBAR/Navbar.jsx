@@ -15,15 +15,25 @@ function Navbar() {
       <NavLink to="/">Accueil</NavLink>
       {!user && (
         <>
-          <NavLink to="/creer-un-compte">Créer un compte</NavLink>
-          <NavLink to="/connexion">Se connecter</NavLink>
+          <NavLink to="/creer-un-compte" className="nav-link">
+            Créer un compte
+          </NavLink>
+          <NavLink to="/connexion" className="nav-link">
+            Se connecter
+          </NavLink>
         </>
       )}
       {user && (
         <>
-          <NavLink to="/annonces">Les annonces</NavLink>
-          <NavLink to="/mon-profile">Mon profile</NavLink>
-          <button onClick={logOut}>Se déconnecter</button>
+          <NavLink to="/annonces" className="nav-link">
+            Les annonces
+          </NavLink>
+          <NavLink to="/mon-profile" className="nav-link">
+            Mon profile
+          </NavLink>
+          <button onClick={logOut} className="logout">
+            Se déconnecter
+          </button>
         </>
       )}
     </nav>

@@ -23,7 +23,7 @@ function MesPropresAnnonces() {
 
   const deleteAnnonce = async (annonceId) => {
     try {
-      await apiHandler.deletePetById(annonceId);
+      await apiHandler.deleteAnnonceById(annonceId);
       setMesAnnonces(
         mesAnnonces.filter((annonce) => annonce._id !== annonceId)
       );

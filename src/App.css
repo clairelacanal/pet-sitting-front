@@ -18,14 +18,12 @@
 }
 
 html {
-  --background-green:#F88F6F;
-  --background-white:#F0F4EF;
-  --background-blue1:#4977B3;
-  --background-blue2:#3A4682;
-  --background-black:#0D1821;
-  --background-mauvefonce:#C28EB2;
-  --background-mauveclair:#D7B3CD;
-  --background-violet:#382449;
+  --background-white:#f1faee;
+  --background-button-icon:#e63946;
+  --background-bleu1:#a8dadc;
+  --background-bleu2:#457b9d;
+  --background-bleu3:#1d3557;
+  --color-black:#000814;
 
   --width-footer:100%;
   --height-footer:6rem;
@@ -52,6 +50,7 @@ body {
   padding-bottom: var(--height-footer);
   margin: 0;
   padding: 0;
+  background-color: #f1faee;
 }
 
 

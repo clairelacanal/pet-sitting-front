@@ -40,10 +40,6 @@ function LoginPage() {
             onChange={handleChange}
           />
         </label>
-        <label htmlFor="email">
-          Email
-          <input type="email" name="email" id="email" onChange={handleChange} />
-        </label>
 
         <label htmlFor="password">
           Password
