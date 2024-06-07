@@ -34,9 +34,13 @@ function CreationAnimalPage() {
     }
   }
   return (
-    <div>
+    <div className="container-form">
       {error && <div>{error}</div>}
-      <form method="post" onSubmit={handleSubmit}>
+      <form
+        method="post"
+        onSubmit={handleSubmit}
+        className="creation-formulaire"
+      >
         <label htmlFor="name">
           Nom de l'animal
           <input type="text" name="name" id="name" onChange={handleChange} />
@@ -107,7 +111,7 @@ function CreationAnimalPage() {
             <option value="malade">Malade</option>
           </select>
         </label>
-        <input type="submit" value="Valider" />
+        <input type="submit" value="Valider" className="submit" />
       </form>
     </div>
   );

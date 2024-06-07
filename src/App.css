@@ -54,6 +54,7 @@ body {
   padding: 0;
   background-color: var(--background-white);
   width: 100vw;
+  padding-bottom: 5rem;
 }
 
 #root {
