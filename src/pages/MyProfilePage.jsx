@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaw } from "@fortawesome/free-solid-svg-icons";
 import "./MyProfilePage.css";
 
 function MyProfilePage() {
@@ -12,9 +14,11 @@ function MyProfilePage() {
 
   return (
     <div className="mon-profile">
-      <h1>Salut {user.userName}!</h1>
+      <h1>
+        <FontAwesomeIcon icon={faPaw} /> Salut {user.userName}!
+      </h1>
       <p>
-        Bienvenue dans ton espace personnel. Gére ici tout ce qui concerne ton
+        Bienvenue dans ton espace personnel. Gère ici tout ce qui concerne ton
         activité.
       </p>
 

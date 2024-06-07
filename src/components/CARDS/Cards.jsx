@@ -34,10 +34,11 @@ function Cards({
             onClick={() => handleFavorite && handleFavorite(annonce._id)}
             style={{ color: isFavorite ? "red" : "grey" }}
           />
-          Mon annonce préférée
         </p>
       )}
-      <Link to={`/annonces/${annonce._id}`}>Voir +</Link>
+      <Link to={`/annonces/${annonce._id}`} className="details-card">
+        Voir +
+      </Link>
       {showDeleteButton && (
         <button onClick={() => onDelete(annonce._id)}>Supprimer</button>
       )}

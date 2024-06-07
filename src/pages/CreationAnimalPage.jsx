@@ -1,6 +1,7 @@
 import { useState } from "react";
 import apiHandler from "../utils/apiHandler";
 import { useNavigate } from "react-router-dom";
+import "./CreationAnimalPage.css";
 
 function CreationAnimalPage() {
   const [animalForm, setAnimalForm] = useState({
