@@ -40,7 +40,7 @@ function AnimauxPage() {
               <p>Age: {pet.age}</p>
               <p>Genre: {pet.gender}</p>
               <p>État de santé: {pet.healthStatus}</p>
-              <button onClick={() => deletePet(pet._id)}>Delete</button>
+              <button onClick={() => deletePet(pet._id)}>Supprimer</button>
               <Link to={`/mon-profile/mes-animaux/${pet._id}`}>Voir +</Link>
             </div>
           ))
