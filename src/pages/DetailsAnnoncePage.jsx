@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import apiHandler from "../utils/apiHandler";
+
 
 function DetailsAnnoncePage() {
   const { annonceId } = useParams();
   const [annonce, setAnnonce] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAnnonceDetail = async () => {
@@ -30,6 +32,9 @@ function DetailsAnnoncePage() {
       <p>
         Du {annonce.startDate} au {annonce.endDate}
       </p>
+      <button onClick={() => navigate(`/mon-profile/mes-propres-annonces/editer/${annonceId}`)}>
+        Edit Annonce
+      </button>
     </div>
   );
 }
