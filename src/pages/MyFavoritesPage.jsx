@@ -34,7 +34,7 @@ function MyFavoritePage() {
   return (
     <>
       <h1>Mes annonces favorites</h1>
-      <div>
+      <div className="card">
         {annonces.map((annonce) => (
           <div key={annonce._id}>
             <h3>{annonce.kind}</h3>

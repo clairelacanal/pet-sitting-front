@@ -1,4 +1,4 @@
-import {  useNavigate, useParams } from "react-router-dom";
+import {  Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import apiHandler from "../utils/apiHandler";
 
@@ -6,7 +6,6 @@ import apiHandler from "../utils/apiHandler";
 function DetailsAnnoncePage() {
   const { annonceId } = useParams();
   const [annonce, setAnnonce] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAnnonceDetail = async () => {
@@ -25,17 +24,19 @@ function DetailsAnnoncePage() {
 
   return (
     <div>
-      <h1>{annonce.kind}</h1>
+      <h1>Détails de mon annonce</h1>
+      <div className="card">
+      <h2>{annonce.kind}</h2>
       <p>{annonce.photo}</p>
       <p>{annonce.city}</p>
       <p>{annonce.description}</p>
       <p>
         Du {annonce.startDate} au {annonce.endDate}
       </p>
-      <button onClick={() => navigate(`/mon-profile/mes-propres-annonces/editer/${annonceId}`)}>
-        Edit Annonce
-      </button>
+      <Link to={`/mon-profile/mes-propres-annonces/editer/${annonceId}`}>Edit annonce</Link>
     </div>
+    </div>
+    
   );
 }
 

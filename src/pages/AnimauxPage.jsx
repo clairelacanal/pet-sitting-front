@@ -29,7 +29,8 @@ function AnimauxPage() {
 
   return (
     <div className="container-pets">
-      <div className="list-pets">
+      <h1>Ma liste d'animaux</h1>
+      <div className="list-pets card">
         {annoncesPet.length > 0 ? (
           annoncesPet.map((pet) => (
             <div key={pet._id}>

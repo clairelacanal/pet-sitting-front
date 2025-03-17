@@ -1,6 +1,12 @@
+import './Form.css'
+import '../../App.css'
+
 function FormAnnonce({ handleSubmit, handleChange, formData }) {
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
+      <div className="container-formulaire">
+      <h3>Créer une annonce Sitter</h3>
+<form onSubmit={handleSubmit} className="form">
       <label htmlFor="city">
         Ville
         <input
@@ -42,6 +48,8 @@ function FormAnnonce({ handleSubmit, handleChange, formData }) {
       </label>
       <input type="submit" value="Valider" />
     </form>
+    </div>
+    </div>
   );
 }
 
