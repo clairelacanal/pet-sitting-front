@@ -38,11 +38,13 @@ function CreationAnnoncePage({ kind }) {
   }
   return (
     <div>
+      <h1>Créer une annonce</h1>
       {error && <div>{error}</div>}
       <FormAnnonce
         handleSubmit={handleSubmit}
         handleChange={handleChange}
         formData={annonceForm}
+        title="Créer une annonce" 
       />
     </div>
   );

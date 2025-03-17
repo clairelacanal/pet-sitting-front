@@ -35,6 +35,7 @@ function CreationAnimalPage() {
   }
   return (
     <div className="container-form">
+      <h1>Créer un animal</h1>
       {error && <div>{error}</div>}
       <form
         method="post"

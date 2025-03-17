@@ -1,11 +1,11 @@
 import './Form.css'
 import '../../App.css'
 
-function FormAnnonce({ handleSubmit, handleChange, formData }) {
+function FormAnnonce({ handleSubmit, handleChange, formData, title }) {
   return (
     <div>
       <div className="container-formulaire">
-      <h3>Créer une annonce Sitter</h3>
+      <h3>{title}</h3>
 <form onSubmit={handleSubmit} className="form">
       <label htmlFor="city">
         Ville

@@ -23,7 +23,7 @@ function AnimalDetails() {
   if (!pet) return <div>Loading...</div>;
 
   return (
-    <div>
+    <div className="card">
       <h1>{pet.name}</h1>
       <p>{pet.photoPet}</p>
       <p>{pet.kindAnimal}</p>
