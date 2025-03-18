@@ -23,20 +23,19 @@ function DetailsAnnoncePage() {
   if (!annonce) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h1>Détails de mon annonce</h1>
-      <div className="card">
-      <h2>{annonce.kind}</h2>
-      <p>{annonce.photo}</p>
-      <p>{annonce.city}</p>
-      <p>{annonce.description}</p>
-      <p>
-        Du {annonce.startDate} au {annonce.endDate}
-      </p>
-      <Link to={`/mon-profile/mes-propres-annonces/editer/${annonceId}`}>Edit annonce</Link>
-    </div>
-    </div>
-    
+    <><h1>Détails de mon annonce</h1>
+    <div className="container-card">
+    <div className="card">
+    <h2>{annonce.kind}</h2>
+    <p>{annonce.photo}</p>
+    <p>{annonce.city}</p>
+    <p>{annonce.description}</p>
+    <p>
+      Du {annonce.startDate} au {annonce.endDate}
+    </p>
+    <Link to={`/mon-profile/mes-propres-annonces/editer/${annonceId}`}>Edit annonce</Link>
+  </div>
+  </div></> 
   );
 }
 

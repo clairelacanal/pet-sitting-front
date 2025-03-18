@@ -41,7 +41,7 @@ function MesPropresAnnonces() {
   return (
     <>
       <h1>Mes propres annonces</h1>
-      <div>
+      <div style={{ display: 'flex' }}>
         {mesAnnonces.map((annonce) => (
           <Cards
             key={annonce._id}
